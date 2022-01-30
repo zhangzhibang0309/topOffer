@@ -6,6 +6,8 @@
  * }
  */
 /**
+ * time 2022.01.30
+ * 
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}

@@ -7,31 +7,26 @@
  */
 /**
  * time 2022.01.31
- * 
+ *
  * @param {ListNode} head
  * @return {ListNode}
  */
+// 时间复杂度O(n) 空间复杂度O(1)
 var swapPairs = function (head) {
-    let virtualHead = new ListNode()
-    virtualHead.next = head
-    let pre = virtualHead
-    let left = head ?? null
-    let right = head?.next ?? null
+  let virtualHead = new ListNode(0, head),
+    pre = virtualHead;
 
-    while (right) {
-        left.next = right.next
-        right.next = left
-        pre.next = right
+  while (pre?.next?.next) {
+    // 定义双指针
+    let left = pre.next;
+    let right = pre?.next?.next;
 
-        let temp = left
-        left = right
-        right = temp
+    // 交换两个节点 并给pre为下一次赋值
+    left.next = right.next;
+    right.next = left;
+    pre.next = right;
+    pre = left;
+  }
 
-        left = left?.next?.next ?? null
-        right = right?.next?.next ?? null
-        pre = pre?.next?.next
-
-    }
-
-    return virtualHead.next
+  return virtualHead.next;
 };

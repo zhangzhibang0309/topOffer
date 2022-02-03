@@ -6,6 +6,8 @@
  */
 // 暴力解法 先平方 再排序
 // 时间复杂度 如果sort是快排的话O(n + n\log n) 空间复杂度O(n)
+// 但是力扣上这个方法更快 估计是因为sort优化比较好 然后主要性能消耗在遍历上
+// 而用.map遍历比下面while然后再做一些操作更快
 var sortedSquares = function (nums) {
   const newArray = nums.map((item) => {
     return item ** 2;

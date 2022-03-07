@@ -27,7 +27,7 @@ console.log(twoSum([2,7,11,15],9)) // [0,1]
 
 // 强大的双指针法
 
-// 1.合并两个有序数组
+// 1.合并两个有序数组 普通双指针
 // 双指针，时间复杂度O(n) 空间复杂度O(1)
 var merge = function (nums1, m, nums2, n) {
   let index1 = m - 1
@@ -44,3 +44,43 @@ var merge = function (nums1, m, nums2, n) {
 };
 
 // 2.三数求和问题 -- 对撞指针
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+
+// 三树之和 双指针 处理可能重复结果
+// 重点是先要有序
+var threeSum = function (nums) {
+  nums.sort((a, b) => {
+      return a - b
+  })
+  console.log(nums)
+  const res = []
+
+  for (let i = 0; i < nums.length - 2; i++) {
+      if (i > 0 && nums[i] === nums[i - 1]) continue
+
+      const current = i
+      let left = i + 1
+      let right = nums.length - 1
+      while (left < right) {
+
+          while (left > i + 1 && nums[left] === nums[left - 1]) left++
+          while (right < nums.length - 1 && nums[right] === nums[right + 1]) right--
+          if(left >= right) break
+
+          const sum = nums[left] + nums[right]
+
+          if (sum + nums[current] === 0) {
+              res.push([nums[current], nums[left], nums[right]])
+              left++
+              right--
+          }
+          else if (sum + nums[current] < 0) left++
+          else right--
+      }
+  }
+
+  return res
+};

@@ -1,0 +1,21 @@
+.outer {
+  display: flex;
+  height: 100px;
+}
+
+.left {
+  width: 100px;
+  background: tomato;
+}
+
+.right {
+  width: 100px;
+  background: gold;
+}
+
+.center {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  background: lightgreen;
+}

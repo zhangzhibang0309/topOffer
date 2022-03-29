@@ -1,0 +1,27 @@
+.outer {
+    position: relative;
+    height: 100px;
+}
+
+.left {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: tomato;
+}
+
+.right {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: gold;
+}
+
+.center {
+    height: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background: lightgreen;
+}

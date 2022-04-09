@@ -11,8 +11,8 @@ arr.sort((a, b) => {
     i++;
 
     // 长度问题
-    if (s1.length === undefined || s2 === undefined)
-      return s2.length - s1.length;
+    if (s1 === undefined || s2 === undefined)
+      return arr2.length - arr1.length;
 
     // 数值一样
     if (s1 === s2) continue;

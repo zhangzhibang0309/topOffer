@@ -2,14 +2,12 @@
 let arr = [3, 6, 2, 4, 1];
 let len = arr.length;
 
-let minIdx;
-
 for (let i = 0; i < len; i++) {
-  minIdx = i;
-  for (let j = i; j < len; j++) {
-    if (arr[j] < arr[minIdx]) minIdx = j;
+  let minIdx = i;
+  for (let j = i + 1; j < len; j++) {
+    if(arr[j] < arr[minIdx]) minIdx = j
   }
-  [arr[minIdx], arr[i]] = [arr[i], arr[minIdx]];
+  [arr[i],arr[minIdx]] = [arr[minIdx],arr[i]]
 }
 
-console.log(arr)
+console.log(arr);

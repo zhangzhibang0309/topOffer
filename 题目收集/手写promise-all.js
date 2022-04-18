@@ -4,32 +4,49 @@ function myPromiseAll(promises) {
 
     let ret = [];
     let cnt = 0;
-    promises.forEach((item) => {
-      Promise.resolve(item)
-        .then((res) => {
-          ret.push(res);
-          cnt++;
+    for (let i = 0; i < promises.length; i++) {
+      Promise.resolve(promises[i])
+      .then(res => {
+        ret[i] = res;
+        cnt++;
+        if (cnt === promises.length) {
+          resolve(ret);
+        }
+      })
+      .catch(err => {
+        reject(err);
+      })
+    }
+    // promises.forEach((item) => {
+    //   Promise.resolve(item)
+    //     .then((res) => {
+    //       ret.push(res);
+    //       cnt++;
 
-          if (cnt === promises.length) resolve(ret);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
+    //       if (cnt === promises.length) resolve(ret);
+    //     })
+    //     .catch((err) => {
+    //       reject(err);
+    //     });
+    // });
   });
 }
 
-const p1 = new Promise((resolve,reject) => {
-  console.log("p1")
-  resolve("p1")
-})
-const p2 = new Promise((resolve,reject) => {
-  console.log("p2")
-  resolve("p2")
-})
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("p1");
+  }, 2000);
+});
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("p2");
+  }, 1000);
+});
 
-myPromiseAll([p1,p2]).then(res => {
-  console.log(res)
-}).catch(err => {
-  console.log(err)
-})
+myPromiseAll([p1, p2])
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

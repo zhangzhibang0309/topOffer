@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {number}
  */
-// 递归 效率极差
+// 递归 时间复杂度O(2^n) 
 let fib2 = function(n) {
   if (n === 0) {
       return 0
@@ -14,7 +14,7 @@ let fib2 = function(n) {
   }
   return fib2(n - 1) + fib2()
 };
-// dp
+// 普通dp 时间复杂度O(n) 空间复杂度O(n)
 let fibDp = (n) => {
   let dp = [0, 1];
   
@@ -24,7 +24,7 @@ let fibDp = (n) => {
 
   return dp[n]
 };
-// 减少内存消耗 不虚要开辟n长度的数组 在不知道dp之前自己写的
+// dp 压缩数组 时间复杂度O(n) 空间复杂度O(1)
 let fib = function (n) {
   if (n == 0) return 0;
 

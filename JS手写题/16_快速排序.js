@@ -25,39 +25,26 @@ let arr = [-1, 2, -8, -10];
 // 原地快排
 // 快排入口
 function quickSort(arr, left = 0, right = arr.length - 1) {
-  if (arr.length > 1) {
-    // lineIndex表示下一次划分左右子数组的索引位
-    const lineIndex = partition(arr, left, right);
-    // 如果左边子数组的长度不小于1，则递归快排这个子数组
-    if (left < lineIndex - 1) {
-      quickSort(arr, left, lineIndex - 1);
-    }
-    // 如果右边子数组的长度不小于1，则递归快排这个子数组
-    if (lineIndex < right) {
-      quickSort(arr, lineIndex, right);
-    }
-  }
+  if (right <= left) return;
+  let lineIndex = partition(arr, left, right);
+  quickSort(arr, left, lineIndex - 1);
+  quickSort(arr, lineIndex + 1, right);
   return arr;
 }
-// 以基准值为轴心，划分左右子数组的过程
+// 每一次分区
 function partition(arr, left, right) {
-  let pivotValue = arr[Math.floor(left + (right - left) / 2)];
-  let i = left;
-  let j = right;
-  while (i <=  j) {
-    while (arr[i] < pivotValue) {
-      i++;
-    }
-    while (arr[j] > pivotValue) {
-      j--;
-    }
-    if (i <= j) {
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-      i++;
-      j--;
-    }
+  const v = arr[left];
+  let i = left,
+    j = right + 1;
+  while (true) {
+    while (arr[++i] < v) if (i >= right) break;
+    while (arr[--j] > v) if (j <= left) break;
+    if (i >= j) break;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-  return i;
+  // 四种情况break出来，j都是左子数组的最后一个元素，然后交换
+  [arr[left], arr[j]] = [arr[j], arr[left]];
+  return j;
 }
-quickSort(arr)
-console.log(arr)
+quickSort(arr);
+console.log(arr);

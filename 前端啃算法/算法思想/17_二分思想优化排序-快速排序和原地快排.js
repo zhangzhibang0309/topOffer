@@ -1,4 +1,4 @@
-let arr = [-1, 2, -8, -1, -10];
+let arr = [-1, 2, -8, -10];
 
 // 普通快排
 // function quickSort1(arr) {
@@ -44,7 +44,7 @@ function partition(arr, left, right) {
   let pivotValue = arr[Math.floor(left + (right - left) / 2)];
   let i = left;
   let j = right;
-  while (i <= j) {
+  while (i <=  j) {
     while (arr[i] < pivotValue) {
       i++;
     }

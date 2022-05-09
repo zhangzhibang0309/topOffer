@@ -17,3 +17,20 @@ var permute = function (nums) {
 
   return list
 };
+
+// 做完这道题，大概能给出一个公式
+// 对于这种需要全部结果的题目
+// let list = []
+// function dfs(list,临时路径,输入) {
+  
+//   结束条件{
+//     list.新增一个路径
+//   }
+
+//   循环{
+//     选择一个数据
+//     递归 dfs(list,临时路径,输入)
+//     撤回选择的数据
+//   }
+// }
+// dfs(list,临时路径,输入)

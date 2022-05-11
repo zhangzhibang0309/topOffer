@@ -5,16 +5,14 @@
  * @param {number[]} nums
  * @return {number}
  */
- var lengthOfLIS = function (nums) {
-    const len = nums.length
+var lengthOfLIS = function (nums) {
+  const len = nums.length;
 
-    let res = 1
-    const dp = new Array(nums.length).fill(1)
-    for (let i = 1; i < len; i++) {
-        for (let j = 0; j < i; j++)
-            if (nums[j] < nums[i]) dp[i] = Math.max(dp[i], dp[j] + 1)
-        res = dp[i] > res ? dp[i] : res
-    }
+  const dp = new Array(nums.length).fill(1);
+  for (let i = 1; i < len; i++) {
+    for (let j = 0; j < i; j++)
+      if (nums[j] < nums[i]) dp[i] = Math.max(dp[i], dp[j] + 1);
+  }
 
-    return res
+  return Math, max(...dp);
 };

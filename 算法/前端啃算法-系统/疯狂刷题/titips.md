@@ -31,7 +31,7 @@ for (let i = 0; i < arr.length; i++) {
 
 ```js
 function walk(treeNode) {
-
+    if(treeNode === null) return
     // 前序
     处理treeNode
     walk(treeNode.left)
@@ -52,12 +52,33 @@ function walk(treeNode) {
 ## 算法层面
 
 1. 二分
+
 2. 双指针（快慢指针，头尾指针）
   1. 链表、数组
+
 3. 递归和回溯（画递归树）
+```js
+function backtrack(数据,路径缓存) {
+  循环：（每次取下一个值）
+    标记
+    backtrack(数据,路径缓存)
+    取消标记
+}
+```
 4. 动态规划
+```js
+想清楚递推公式
+1，2，5 三种零钱 怎么最好的找出11块钱
+dp[11]  11块钱这个值的找零最优解
+Min(dp[10],dp[9],dp[6])的最优解
+```
 5. 贪心
+```js
+没有公式
+一般就是暴力完后优化
+```
 6. bfs(宽度优先) dfs（回溯，深度优先）
+
 
 ## 题型
 

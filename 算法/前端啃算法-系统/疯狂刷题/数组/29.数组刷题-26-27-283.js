@@ -16,27 +16,29 @@ var removeDuplicates = function (nums) {
 };
 
 // 27.移除元素
-let removeElement = function (nums, val) {
-  let index = 0;
-  nums.forEach((item) => {
-    if (item !== val) nums[index++] = item;
-  });
-
-  return index;
-};
-
-
-// 283.移动零
-var moveZeroes = function (nums) {
-  let slow = 0
-  let fast = 0
+function removeElement(nums, val) {
+  let slow = 0;
+  let fast = 0;
 
   while (fast < nums.length) {
-      if (nums[fast]) {
-          [nums[slow], nums[fast]] = [nums[fast], nums[slow]]
-          slow++
-      }
+    if (nums[fast] !== val) nums[slow++] = nums[fast];
 
-      fast++
+    fast++;
+  }
+
+  return slow;
+}
+
+// 283.移动零
+function moveZeroes(nums) {
+  let slow = 0;
+  let fast = 0;
+
+  while(fast < nums.length) {
+    if(nums[fast] !== 0){
+      [nums[slow],nums[fast]] = [nums[fast],nums[slow]]
+      slow++
+    }
+    fast++
   }
 };

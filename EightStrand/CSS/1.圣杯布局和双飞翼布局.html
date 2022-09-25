@@ -6,106 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* 圣杯布局 */
-      #hd {
-        height: 50px;
-        background: #666;
-        text-align: center;
-      }
-      #bd {
-        /*左右栏通过添加负的margin放到正确的位置了，此段代码是为了摆正中间栏的位置*/
-        padding: 0 180px 0 180px;
-        height: 100px;
-      }
-      #middle {
+      /* /* section::after {
+        content: "";
+        display: block;
+        clear: both;
+      } */
+      /* double wing */
+      .double-wing > div {
+        height: 200px;
         float: left;
-        width: 100%; /*左栏上去到第一行*/
-        height: 100px;
-        background: blue;
-      }
-      #left {
-        float: left;
-        width: 180px;
-        height: 100px;
-        margin-left: -100%;
-        background: #0c9;
-        /*中间栏的位置摆正之后，左栏的位置也相应右移，通过相对定位的left恢复到正确位置*/
-        position: relative;
-        left: -180px;
-      }
-      #right {
-        float: left;
-        width: 180px;
-        height: 100px;
-        margin-left: -180px;
-        background: #0c9;
-        /*中间栏的位置摆正之后，右栏的位置也相应左移，通过相对定位的right恢复到正确位置*/
-        position: relative;
-        right: -180px;
-      }
-      #footer {
-        height: 50px;
-        background: #666;
-        text-align: center;
       }
 
-      /* 双飞翼 */
-      #hd {
-        height: 50px;
-        background: #666;
-        text-align: center;
+      .double-wing .center {
+        width: 100%;
       }
-      #middle {
-        float: left;
-        width: 100%; /*左栏上去到第一行*/
-        height: 100px;
-        background: blue;
-      }
-      #left {
-        float: left;
-        width: 180px;
-        height: 100px;
-        margin-left: -100%;
-        background: #0c9;
-      }
-      #right {
-        float: left;
-        width: 200px;
-        height: 100px;
-        margin-left: -200px;
-        background: #0c9;
+      .double-wing .center-inner {
+        height: 100%;
+        background-color: greenyellow;
+        margin: 0 129px;
       }
 
-      /*给内部div添加margin，把内容放到中间栏，其实整个背景还是100%*/
-      #inside {
-        margin: 0 200px 0 180px;
-        height: 100px;
+      .double-wing .left,
+      .double-wing .right {
+        width: 119px;
+        background-color: yellowgreen;
       }
-      #footer {
-        clear: both; /*记得清楚浮动*/
-        height: 50px;
-        background: #666;
-        text-align: center;
+      .double-wing .left {
+        margin-left: -100%;
+      }
+      .double-wing .right {
+        margin-left: -119px;
+      }
+
+      /* holy-grail */
+      .holy-grail {
+        padding: 0 129px;
+      }
+
+      .holy-grail div {
+        height: 200px;
+        width: 100%;
+        background-color: blueviolet;
+        float: left;
+      }
+
+      .holy-grail .left,
+      .holy-grail .right {
+        position: relative;
+        width: 119px;
+      }
+      .holy-grail .left {
+        left: -129px;
+        margin-left: -100%;
+      }
+      .holy-grail .right {
+        left: 129px;
+        margin-left: -119px;
       }
     </style>
   </head>
   <body>
-    <!-- 圣杯布局 -->
-    <div id="hd">header</div>
-    <div id="bd">
-      <div id="middle">middle</div>
-      <div id="left">left</div>
-      <div id="right">right</div>
-    </div>
-    <div id="footer">footer</div>
-
-    <!-- 双飞翼布局 -->
-    <div id="hd">header</div>
-    <div id="middle">
-      <div id="inside">middle</div>
-    </div>
-    <div id="left">left</div>
-    <div id="right">right</div>
-    <div id="footer">footer</div>
+    <h2>双飞翼布局</h2>
+    <section class="double-wing">
+      <div class="center">
+        <div class="center-inner">
+          A paragraph of filler text. La la la de dah de dah de dah de la.
+        </div>
+      </div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </section>
+    <h2>圣杯布局</h2>
+    <section class="holy-grail">
+      <div class="center">
+        Nam aliquam sem et tortor. Neque interdum consectetur libero id.
+      </div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </section>
   </body>
 </html>

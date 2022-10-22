@@ -4,7 +4,6 @@
 function debounce(fn, delay = 300) {
   //默认300毫秒
   let timer;
-  console.log(this)
   return function () {
     const args = arguments;
     if (timer) {

@@ -16,11 +16,11 @@ function flatter(arr) {
   if (!arr.length) return;
   // 遍历每个数组的的元素，如果检测到某个元素是数组，那就拆一层，直到拍平
   while (arr.some((item) => Array.isArray(item))) {
-    arr = [].concat(...arr); 
+    arr = [].concat(...arr);
   }
   // 返回拍平的数组
   return arr;
 }
-const arr = [1, 2, [1, [2, 3, [4, 5, [6]]]]]
-const res = flatter(arr)
-console.log(res)
+const arr = [1, 2, [1, [2, 3, [4, 5, [6]]]]];
+const res = flatter(arr);
+console.log(res);
